@@ -1,14 +1,19 @@
 import express from 'express';
+import router from './router';
 
 const app = express();
 
-//Routing
-app.get('/', (req, res) => {
-    res.send('Hello, World! with typescript and nodets zs');
-});
+const port = process.env.PORT || 4000;
 
-app.get('/ecommerce', (req, res) => {
-    res.send('Hello, World! from E-commerce route');
+// Middlewares
+//app.use(express.json());
+
+// Rutas
+app.use('/', router);
+
+// Aquí SÍ se arranca el servidor
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
 });
 
 export default app;

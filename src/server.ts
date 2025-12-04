@@ -8,6 +8,8 @@ const port = process.env.PORT || 4000;
 // Middlewares
 //app.use(express.json());
 
+app.use(express.json());
+
 // Rutas
 app.use('/', router);
 

@@ -2,14 +2,11 @@ import mongoose from 'mongoose';
 
 export const connectDB = async () => {
   try {
-    const url = 'mongodb+srv://root:ww12Fijo@cluster0.tla3seo.mongodb.net/linktree_node_typescript';
-    const {connection} = await mongoose.connect(url);
-    const url2 = `${connection.host}:${connection.port}`;
-    console.log('Database connected to:', url2);
-    
-    
+    const {connection} = await mongoose.connect(process.env.MONGO_URI);
+    const url = `${connection.host}:${connection.port}`;
+    console.log('Database connected to:', url);
   } catch (error) {
-    console.error('Database connection error:', error);
+    console.error('Database connection error:', error.message);
     process.exit(1);
   }
 }

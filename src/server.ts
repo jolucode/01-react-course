@@ -1,10 +1,12 @@
 import express from 'express';
 import router from './router';
+import {connectDB} from './config/db';
 
 const app = express();
 
 const port = process.env.PORT || 4000;
 
+connectDB();
 // Middlewares
 //app.use(express.json());
 
@@ -19,3 +21,7 @@ app.listen(port, () => {
 });
 
 export default app;
+
+//user database
+//root
+//ww12Fijo
